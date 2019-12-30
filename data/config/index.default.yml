@@ -1,0 +1,47 @@
+---
+  # 服务器配置 ###########################################################################
+  ######################################################################################
+  
+  # 服务器IP；默认 0.0.0.0
+  Host              : 0.0.0.0
+  
+  # 服务器端口；此为内部运行端口，请将此端口映射到 nginx 上
+  Port              : 3000
+  
+  # 站点名称
+  site_name         : Remote FileUpload Server
+  
+  # 站点链接
+  site_url          : http://localhost:3000
+  
+  # 设置 Session 名称
+  session_secret    : release-app-server
+  
+  # 设置 Redis 缓存库
+  redis:
+    host            : 127.0.0.1
+    port            : 6379
+    db              : 0
+  
+  # 默认语言
+  language          : zh-cn
+  
+  # 自定义选项
+  options:
+    # 绑定 Request 头部信息
+    headers:
+      # - !!seq [ Access-Control-Allow-Origin, '*' ]
+      # - !!seq [ Access-Control-Allow-Methods, 'GET, HEAD, POST, PUT, PATCH, DELETE' ]
+      - !!seq [ Access-Control-Allow-Headers, 'X-Requested-With,content-type, Authorization' ]
+    # Origin
+    origin:
+      - http://localhost:3000
+    # 认证
+    certification:
+      url             : http://localhost:3000/api/v1/passport/accesstoken
+      level           : 9000
+      status          : 404
+    # Preview
+    preview:
+      '.png'          : image/png
+      '.jpg'          : image/jpeg

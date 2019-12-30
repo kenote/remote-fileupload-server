@@ -81,6 +81,13 @@ typings/
 # Nuxt.js build / generate output
 .nuxt
 dist
+build
+uploadfiles
+data/**/*.yml
+!data/**/*.default.yml
+.deploy
+package-lock.json
+yarn.lock
 
 # Gatsby files
 .cache/
